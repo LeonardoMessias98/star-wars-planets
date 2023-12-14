@@ -18,7 +18,8 @@ export const ModalContainer = styled.div`
   @media (max-width: 900px) {
     flex-direction: column;
 
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     height: 500px;
   }
 `;
@@ -32,7 +33,7 @@ export const PlanetImage = styled.div<IPlanetImage>`
   background-size: cover;
 
   @media (max-width: 900px) {
-    width: 300px;
+    width: 100%;
     height: 188px;
     background-position: center;
     border-radius: 5px;
@@ -47,6 +48,7 @@ export const SearchContent = styled.div`
 
   width: 100%;
   max-width: 400px;
+  padding: 0 25px;
 
   h1 {
     font-family: Montserrat;
@@ -58,52 +60,13 @@ export const SearchContent = styled.div`
     color: #fff;
     width: 100%;
     max-width: 292px;
-    margin: 30px;
-  }
-
-  input {
-    width: 100%;
-    height: 40px;
-    max-width: 301px;
-
-    font-family: Lato;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 17px;
-    letter-spacing: 0em;
-    text-align: center;
-    border-radius: 5px;
-    border: none;
-  }
-
-  button {
-    cursor: pointer;
-    width: 301px;
-    height: 40px;
-
-    margin-top: 8px;
-    border-radius: 5px;
-    background: #de1212;
-    color: #fff;
-
-    font-family: Lato;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 19px;
-    letter-spacing: 0em;
-    text-align: center;
-    border: none;
+    padding: 0 30px 30px;
   }
 
   @media (max-width: 900px) {
     h1 {
       font-size: 18px;
-    }
-
-    input,
-    button {
-      width: 248px;
-      height: 40px;
+      padding: 50px 20px 30px;
     }
   }
 `;
@@ -138,35 +101,5 @@ export const SpaceshipImageWrapper = styled.div`
     bottom: unset;
     left: 60px;
     top: 60px;
-  }
-`;
-
-export const Filters = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-
-  span {
-    display: flex;
-    align-items: center;
-    margin-right: 12px;
-
-    color: #fff;
-    font-family: Lato;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    strong,
-    p,
-    svg {
-      color: #fff;
-    }
-
-    svg {
-      width: 15px;
-      margin-right: 5px;
-    }
   }
 `;
