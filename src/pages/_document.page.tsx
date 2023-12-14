@@ -6,7 +6,6 @@ export default function MyDocument() {
   return (
     <Html lang="en">
       <Head>
-        <title>Home - Star Wars</title>
         <link rel="icon" href="/favicon.png" sizes="any" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
