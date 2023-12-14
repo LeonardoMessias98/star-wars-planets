@@ -9,27 +9,6 @@ export const InputContainer = styled.div`
   max-width: 301px;
 `;
 
-export const Results = styled.div`
-  position: absolute;
-
-  width: 100%;
-  background: #fff;
-  margin: 45px 0 0;
-  border-radius: 5px;
-  padding: 10px 20px;
-  box-shadow: 0 0 20px 0px #343434;
-
-  h2 {
-    font-family: Lato;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 17px;
-
-    padding: 10px 0;
-    cursor: pointer;
-  }
-`;
-
 export const Input = styled.input`
   height: 40px;
 
@@ -58,6 +37,7 @@ export const InputButton = styled.button`
   font-weight: 700;
   line-height: 19px;
   letter-spacing: 0em;
+  text-transform: capitalize;
   text-align: center;
   border: none;
 `;

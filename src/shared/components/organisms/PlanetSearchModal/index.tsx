@@ -5,7 +5,7 @@ import PlanetImg from "@/shared/assets/desert_planet.png";
 import ShapeshipImage from "@/shared/assets/spaceship.png";
 
 import Filters from "../../molecules/Filters";
-import SearchInput from "../../atoms/SearchInput";
+import SearchInput from "../../molecules/SearchInput";
 
 import {
   ModalContainer,

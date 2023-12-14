@@ -60,13 +60,13 @@ export const SearchContent = styled.div`
     color: #fff;
     width: 100%;
     max-width: 292px;
-    padding: 0 30px 30px;
+    padding: 0 0 30px;
   }
 
   @media (max-width: 900px) {
     h1 {
       font-size: 18px;
-      padding: 50px 20px 30px;
+      padding: 50px 0 30px;
     }
   }
 `;

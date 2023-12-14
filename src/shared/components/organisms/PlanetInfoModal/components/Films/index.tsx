@@ -1,31 +1,12 @@
-import React, { cache, useEffect, useState } from "react";
+import React from "react";
 
 import MoviesIcon from "@/shared/assets/MoviesIcon";
 import { FilmsContainer } from "./styles";
 import { IPlanet } from "@/shared/types";
 
-interface IFilm {
-  film: string;
-}
-
 interface IFilms {
   planet: IPlanet;
 }
-
-const SingleFilm = ({ film }: IFilm) => {
-  const [filmData, setFilmData] = useState<any>(null);
-
-  useEffect(() => {
-    async function getFilmData(url: string) {
-      const response = await fetch(url, { cache: "force-cache" });
-      setFilmData(await response.json());
-    }
-
-    getFilmData(film);
-  }, [film]);
-
-  return <p>{filmData?.title || ""}</p>;
-};
 
 const Films = ({ planet }: IFilms) => {
   return (
@@ -37,7 +18,7 @@ const Films = ({ planet }: IFilms) => {
 
       <div className="film-list">
         {planet.films.map((film) => (
-          <SingleFilm film={film} key={film} />
+          <p key={film.title}>{film.title}</p>
         ))}
       </div>
     </FilmsContainer>

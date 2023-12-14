@@ -6,7 +6,7 @@ const nextConfig = {
     styledComponents: true
   },
   images: {
-    domains: ['cryptospro.com.br', 'cdn-icons-png.flaticon.com']
+    domains: ['cryptospro.com.br', 'www.shareicon.net']
   },
 }
 

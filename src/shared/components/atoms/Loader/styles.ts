@@ -7,6 +7,7 @@ export const LoaderContainer = styled.div`
 
   width: 100%;
   height: 100%;
+  min-height: 45px;
 
   svg {
     width: 20px;

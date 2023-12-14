@@ -19,18 +19,23 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
   const id = Number(params?.id);
 
   async function getSinglePlanet(id: number) {
-    const response = await fetch(`https://swapi.dev/api/planets/${id}/`, {
-      cache: "force-cache",
-    });
+    const response = await fetch(
+      `https://planets-starwars.vercel.app/api/planet/${id}/`,
+      {
+        cache: "force-cache",
+      }
+    );
 
-    return response.json();
+    const data = await response.json();
+
+    return JSON.parse(data.message);
   }
 
   const planet = await getSinglePlanet(id);
 
   return {
     props: {
-      planet,
+      planet: planet,
     },
     revalidate: 60,
   };

@@ -1,31 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import ResidentIcon from "@/shared/assets/ResidentIcon";
 import { IPlanet } from "@/shared/types";
 import { ResidentsContainer } from "./styles";
 
-interface IResident {
-  resident: string;
-}
-
 interface IResidents {
   planet: IPlanet;
 }
-
-const SingleResident = ({ resident }: IResident) => {
-  const [residentData, setResidentData] = useState<any>(null);
-
-  useEffect(() => {
-    async function getResidentData(url: string) {
-      const response = await fetch(url, { cache: "force-cache" });
-      setResidentData(await response.json());
-    }
-
-    getResidentData(resident);
-  }, [resident]);
-
-  return <p>{residentData?.name || ""}</p>;
-};
 
 const Residents = ({ planet }: IResidents) => {
   return (
@@ -37,7 +18,7 @@ const Residents = ({ planet }: IResidents) => {
 
       <div className="film-list">
         {planet.residents.map((resident) => (
-          <SingleResident resident={resident} key={resident} />
+          <p key={resident.name}>{resident.name}</p>
         ))}
       </div>
     </ResidentsContainer>

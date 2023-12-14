@@ -1,10 +1,8 @@
 import React, { MouseEvent, useEffect, useState } from "react";
 
 import { IPlanet } from "@/shared/types";
-import Loader from "../Loader";
-import { Input, InputButton, InputContainer, Results } from "./styles";
-import Link from "next/link";
-import convertToPageUrl from "@/shared/utils/convertToPageUrl";
+import { Input, InputButton, InputContainer } from "./styles";
+import Results from "./components/Result";
 
 const SearchInput = () => {
   const [planets, setPlanets] = useState<IPlanet[]>([]);
@@ -45,22 +43,9 @@ const SearchInput = () => {
     }
   }
 
-  const closeResultModal = (ev: MouseEvent<HTMLElement> | any) => {
-    const target = ev.target as HTMLElement;
-    const id = target.id;
-
-    const allowedIDs = ["planet", "search"];
-
-    if (!allowedIDs.includes(id)) {
-      setShowResults(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", closeResultModal);
-
-    return () => document.removeEventListener("click", closeResultModal);
-  }, []);
+  function handleClose() {
+    setShowResults(false);
+  }
 
   return (
     <InputContainer>
@@ -71,17 +56,11 @@ const SearchInput = () => {
       />
 
       {showResults && (
-        <Results>
-          {isLoading ? (
-            <Loader />
-          ) : (
-            planets.map((planet) => (
-              <Link href={convertToPageUrl(planet.url)} key={planet.name}>
-                <h2 id="planet">{planet.name}</h2>
-              </Link>
-            ))
-          )}
-        </Results>
+        <Results
+          planets={planets}
+          isLoading={isLoading}
+          onClose={handleClose}
+        />
       )}
 
       <InputButton onClick={handleSearch} id="search">

@@ -17,7 +17,7 @@ const getPlanetImageUrl = (planetName: IPlanetName) => {
   };
 
   const hasImage = imagesId[name];
-  if(!hasImage) return 'https://cdn-icons-png.flaticon.com/512/2363/2363876.png'
+  if(!hasImage) return 'https://www.shareicon.net/data/512x512/2015/10/04/651089_question_512x512.png'
 
   return `https://cryptospro.com.br/planetas/planeta_${imagesId[name]}_${name}.png`;
 };

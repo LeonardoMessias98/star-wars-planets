@@ -6,8 +6,8 @@ import GlobalStyle from "@/shared/styles/GlobalStyle";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <LayoutWrapper>
-      <Component {...pageProps} />
-      <GlobalStyle />
+        <Component {...pageProps} />
+        <GlobalStyle />
     </LayoutWrapper>
   );
 }
