@@ -1,6 +1,8 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+import { ServerStyleSheet } from "styled-components";
+
+export default function MyDocument() {
   return (
     <Html lang="en">
       <Head>
@@ -30,3 +32,29 @@ export default function Document() {
     </Html>
   );
 }
+
+MyDocument.getInitialProps = async (ctx: any) => {
+  const sheet = new ServerStyleSheet();
+  const originalRenderPage = ctx.renderPage;
+
+  try {
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App: any) => (props: any) =>
+          sheet.collectStyles(<App {...props} />),
+      });
+
+    const initialProps = await Document.getInitialProps(ctx);
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          {sheet.getStyleElement()}
+        </>
+      ),
+    };
+  } finally {
+    sheet.seal();
+  }
+};

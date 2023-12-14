@@ -28,7 +28,6 @@ const SingleResident = ({ resident }: IResident) => {
 };
 
 const Residents = ({ planet }: IResidents) => {
-  console.log(planet.residents);
   return (
     <ResidentsContainer>
       <span>
