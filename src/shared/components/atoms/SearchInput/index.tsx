@@ -76,7 +76,7 @@ const SearchInput = () => {
             <Loader />
           ) : (
             planets.map((planet) => (
-              <Link href={convertToPageUrl(planet.url)}>
+              <Link href={convertToPageUrl(planet.url)} key={planet.name}>
                 <h2 id="planet">{planet.name}</h2>
               </Link>
             ))

@@ -37,7 +37,7 @@ const Films = ({ planet }: IFilms) => {
 
       <div className="film-list">
         {planet.films.map((film) => (
-          <SingleFilm film={film} />
+          <SingleFilm film={film} key={film} />
         ))}
       </div>
     </FilmsContainer>

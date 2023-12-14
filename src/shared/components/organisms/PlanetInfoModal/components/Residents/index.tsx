@@ -38,7 +38,7 @@ const Residents = ({ planet }: IResidents) => {
 
       <div className="film-list">
         {planet.residents.map((resident) => (
-          <SingleResident resident={resident} />
+          <SingleResident resident={resident} key={resident} />
         ))}
       </div>
     </ResidentsContainer>
