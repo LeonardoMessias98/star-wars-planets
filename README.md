@@ -52,7 +52,7 @@ Acesse o site do [NodeJs](https://nodejs.org/en/) e instale a versão LTS
 
 Com tudo já instalado primeiro faça o clone deste repositório
 ```
-https://github.com/LeonardoMessias98/company-hero-animes.git
+https://github.com/LeonardoMessias98/star-wars-planets.git
 ```
 
 Acesse a pasta do repositório pelo terminal
@@ -76,13 +76,14 @@ A aplicação rodará na porta 3000 do seu localhost -> [http://localhost:3000](
 
 ## Tecnologias e bibliotecas
 * [`react`](https://pt-br.reactjs.org/)
-* [`ant-design`](https://ant.design/docs/react/introduce)
+* [`nextjs`](https://nextjs.org/)
 * [`typescript`](https://www.typescriptlang.org/)
+* [`styled-components`](https://styled-components.com/)
 * [`eslint`](https://eslint.org/)
+* [`jest`](https://jestjs.io/pt-BR/)
 * [`contextApi`](https://pt-br.reactjs.org/docs/context.html)
 * [`react-icons`](https://react-icons.github.io/react-icons/)
 * [`axios`](https://github.com/axios/axios)
-* [`styled-components`](https://styled-components.com/)
 
 ## Duvidas
   Para qualquer duvida estou a total disposição para explicar melhor o meu código e as decisões que tomei de arquitetura. <img src="https://freepngimg.com/thumb/cartoon/87237-plant-fathers-greeting-yoda-green-day-card.png" width="50px" height="40px"/>
