@@ -87,6 +87,7 @@ const SearchInput = () => {
 
       {showResults && (
         <Results
+          searchInput={searchInput}
           planets={orderResults(planets)}
           isLoading={isLoading}
           onClose={handleClose}

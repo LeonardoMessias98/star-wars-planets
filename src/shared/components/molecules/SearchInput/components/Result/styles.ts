@@ -34,32 +34,38 @@ export const ResultsContainer = styled.div`
     &:hover {
       background: #ddd;
     }
+  }
+`;
 
-    section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      row-gap: 5px;
+export const PlanetInfo = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 5px;
 
-      h2 {
-        font-family: Lato;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 17px;
-      }
-
-      span {
-        font-family: Lato;
-        font-size: 14px;
-        font-weight: 500;
-        color: #343434;
-      }
-    }
+  h2 {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 17px;
   }
 
-  .imgWrapper {
-    position: relative;
-    width: 50px;
-    height: 50px;
+  span {
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 500;
+    color: #343434;
   }
+`;
+
+export const NotFoundText = styled.h3`
+  padding: 20px;
+  text-align: center;
+  font-weight: 600;
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  width: 50px;
+  height: 50px;
 `;
