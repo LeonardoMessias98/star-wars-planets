@@ -4,7 +4,8 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-
+  z-index: 2;
+  
   width: 100%;
   max-width: 301px;
 `;
@@ -46,5 +47,4 @@ export const InputButton = styled.button`
   text-transform: capitalize;
   text-align: center;
   border: none;
-
 `;

@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { IPlanet } from "@/shared/types";
 import SearchIcon from "@/shared/assets/SearchIcon";
 
 import Results from "./components/Result";
 import { Input, InputButton, InputContainer } from "./styles";
+import FilterContext from "@/shared/providers/contexts/PlanetContexts";
 
 const SearchInput = () => {
+  const { nameFilterOrder, populationFilterOrder } = useContext(FilterContext);
+
   const [planets, setPlanets] = useState<IPlanet[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
@@ -34,7 +37,7 @@ const SearchInput = () => {
 
     if (!results) return;
 
-    setPlanets(results);
+    setPlanets(orderResults(results));
   }
 
   function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -50,6 +53,30 @@ const SearchInput = () => {
     setShowResults(false);
   }
 
+  function orderResults(results: IPlanet[]) {
+    if (populationFilterOrder === "Ascendent")
+      return results.sort((a, b) =>
+        Number(a.population) > Number(b.population) ? 1 : -1
+      );
+
+    if (populationFilterOrder === "Decrescent")
+      return results.sort((a, b) =>
+        Number(a.population) < Number(b.population) ? 1 : -1
+      );
+
+    if (nameFilterOrder === "Ascendent")
+      return results.sort((a, b) => (a.name > b.name ? 1 : -1));
+
+    if (nameFilterOrder === "Decrescent")
+      return results.sort((a, b) => (a.name < b.name ? 1 : -1));
+
+    return results;
+  }
+
+  useEffect(() => {
+    const results = orderResults(planets);
+  }, [planets, nameFilterOrder, populationFilterOrder]);
+
   return (
     <InputContainer>
       <Input
@@ -60,7 +87,7 @@ const SearchInput = () => {
 
       {showResults && (
         <Results
-          planets={planets}
+          planets={orderResults(planets)}
           isLoading={isLoading}
           onClose={handleClose}
         />

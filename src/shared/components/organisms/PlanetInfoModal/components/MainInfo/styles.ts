@@ -26,6 +26,14 @@ export const PlanetImage = styled.div`
 
   width: 74px;
   height: 74px;
+
+  animation: infinite rotate 60s;
+
+  @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 `;
 
 export const PlanetName = styled.section`

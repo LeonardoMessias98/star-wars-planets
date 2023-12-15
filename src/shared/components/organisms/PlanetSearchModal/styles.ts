@@ -48,7 +48,7 @@ export const SearchContent = styled.div`
 
   width: 100%;
   max-width: 400px;
-  padding: 0 25px;
+  padding: 0 25px 25px;
 
   h1 {
     font-family: Montserrat;

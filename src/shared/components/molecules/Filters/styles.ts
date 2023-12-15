@@ -14,6 +14,10 @@ export const FiltersContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px 20px;
+
+  @media (max-width: 900px) {
+    gap: 10px 8px;
+  }
 `;
 
 export const FilterTitle = styled.span<IFilterTitle>`

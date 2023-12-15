@@ -1,25 +1,45 @@
-import { IPlanet } from "@/shared/types";
 import { ReactNode, createContext, useState } from "react";
 
-export type PlanetContextData = {
+export type FilterContextData = {
   children: ReactNode;
 };
 
-export type PlanetContextProps = {
-  planet: IPlanet;
-  setPlanet: (planet: IPlanet) => void;
+export type FilterContextProps = {
+  nameFilterOrder: string;
+  populationFilterOrder: string;
+  handleSelectNameFilter: (order: string) => void;
+  handleSelectPopulationFilter: (order: string) => void;
 };
 
-const PlanetContext = createContext({} as PlanetContextProps);
+const FilterContext = createContext({} as FilterContextProps);
 
-export function PlanetContextProvider({ children }: PlanetContextData) {
-  const [planet, setPlanet] = useState<IPlanet>({} as IPlanet);
+export function FilterContextProvider({ children }: FilterContextData) {
+  const [nameFilterOrder, setNameFilterOrder] = useState<string>("Name");
+  const [populationFilterOrder, setPopulationFilterOrder] =
+    useState<string>("Population");
+
+  function handleSelectNameFilter(order: string) {
+    setNameFilterOrder(order);
+    setPopulationFilterOrder("Population");
+  }
+
+  function handleSelectPopulationFilter(order: string) {
+    setPopulationFilterOrder(order);
+    setNameFilterOrder("Name");
+  }
 
   return (
-    <PlanetContext.Provider value={{ planet, setPlanet }}>
+    <FilterContext.Provider
+      value={{
+        nameFilterOrder,
+        populationFilterOrder,
+        handleSelectNameFilter,
+        handleSelectPopulationFilter,
+      }}
+    >
       {children}
-    </PlanetContext.Provider>
+    </FilterContext.Provider>
   );
 }
 
-export default PlanetContext;
+export default FilterContext;

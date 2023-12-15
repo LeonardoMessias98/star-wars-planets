@@ -1,22 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import SettingIcon from "@/shared/assets/SettingIcon";
-import ChevronDownIcon from "@/shared/assets/ChevronDownIcon";
-import { FilterOption, FilterTitle, FiltersContainer } from "./styles";
+import FilterContext from "@/shared/providers/contexts/PlanetContexts";
+
+import Filter from "./Filter";
+import { FilterTitle, FiltersContainer } from "./styles";
 
 const Filters = () => {
-  const [filterId, setFilterId] = useState<string>("");
-
-  function handleActiveFilter(e: React.MouseEvent<HTMLElement>) {
-    const target = e.target as HTMLSpanElement;
-    const id = target.id || "";
-
-    setFilterId(id);
-
-    if (filterId === id) {
-      setFilterId("");
-    }
-  }
+  const {
+    nameFilterOrder,
+    populationFilterOrder,
+    handleSelectNameFilter,
+    handleSelectPopulationFilter,
+  } = useContext(FilterContext);
 
   return (
     <FiltersContainer>
@@ -25,18 +21,14 @@ const Filters = () => {
         <strong>Filter:</strong>
       </FilterTitle>
 
-      <FilterOption onClick={handleActiveFilter} isActive={filterId === "name"}>
-        <ChevronDownIcon />
-        <p id="name">Name</p>
-      </FilterOption>
-
-      <FilterOption
-        isActive={filterId === "population"}
-        onClick={handleActiveFilter}
-      >
-        <ChevronDownIcon />
-        <p id="population">Population</p>
-      </FilterOption>
+      <Filter
+        order={nameFilterOrder}
+        onSetFilterOrder={handleSelectNameFilter}
+      />
+      <Filter
+        order={populationFilterOrder}
+        onSetFilterOrder={handleSelectPopulationFilter}
+      />
     </FiltersContainer>
   );
 };
