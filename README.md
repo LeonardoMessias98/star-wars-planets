@@ -1,40 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![image](https://github.com/LeonardoMessias98/star-wars-planets/assets/55189046/130e3f6b-8d0c-4c53-9088-2f0af0892832)
 
-## Getting Started
 
-First, run the development server:
+#### Acesse aqui -> [https://planets-starwars.vercel.app](https://planets-starwars.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Funcionalidades
+
+A aplicação desenvolvida contém duas telas
+ * Página Inicial (Home): Esta tela proporciona ao usuário a capacidade de realizar pesquisas rápidas sobre planetas no universo de Star Wars. Facilita a busca por informações específicas sobre os diferentes planetas disponíveis no sistema, proporcionando uma experiência intuitiva e eficiente.
+
+ * Página de Planeta Individual (Single Planet): Esta tela foi projetada para exibir detalhes específicos sobre o planeta selecionado. Os dados apresentados abrangem tanto as características geológicas quanto as informações populacionais do planeta escolhido, oferecendo uma visão abrangente e detalhada para o usuário explorar.
+
+## Arquitetura do código
+
+A decisão de selecionar a arquitetura do código foi um desafio considerável, uma vez que me vi diante da difícil escolha entre adotar o novo padrão proposto pela Vercel ou seguir a abordagem habitual que emprego em meu trabalho e projetos pessoais. No final, optei por utilizar a arquitetura com a qual já tenho maior familiaridade. Essa escolha foi influenciada pela minha experiência prévia, visando otimizar a eficiência e a coesão do desenvolvimento, proporcionando um ambiente em que me sinto mais confortável e capaz de alcançar resultados consistentes.
+  * `src` – Esta pasta abriga todo o código-fonte da minha aplicação.
+    *  `pages` – Contém as páginas da aplicação, incluindo as paginas de api.
+    *  `modules` – Aqui estão os módulos específicos das minhas páginas.
+    *  `shared` – Esta pasta contém elementos compartilhados tanto entre páginas quanto entre componentes.
+        * `assets` – Nesta pasta estão armazenadas todas as imagens e ícones utilizados na aplicação.
+        * `components` – Aqui são mantidos os componentes reutilizáveis. Adotei o padrão de componentes chamado Atomic Design, onde separo os componentes em pastas denominadas atoms / molecules / organisms / templates, visando facilitar a estrutura para escalabilidade do projeto.
+        * `providers` –  Esta pasta abriga os provedores da minha aplicação, como Contextos, Redux, Layouts, entre outros.
+        * `types` –  Aqui são definidas as interfaces utilizadas globalmente na aplicação.
+        * `styles` –  Nesta pasta estão os estilos globais da aplicação.
+        * `utils` –  Aqui são armazenadas as funções úteis que são utilizadas em diversos pontos da aplicação.
+
+
+## Requisitos para rodar o projeto
+- [Npm](https://www.npmjs.com/)
+- [NodeJs](https://nodejs.org/en/)
+
+## Como rodar o projeto
+
+Para rodar é essencial que tenha o [node](https://nodejs.org/en/) instalado, caso não tenha siga o passo a passo logo abaixo
+
+#### Ubuntu 
+```
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Debian, as root
+```
+curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+apt-get install -y nodejs
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+#### [Outra distribuição Linux](https://nodejs.org/en/download/package-manager/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### Windows
+Acesse o site do [NodeJs](https://nodejs.org/en/) e instale a versão LTS
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Com tudo já instalado primeiro faça o clone deste repositório
+```
+https://github.com/LeonardoMessias98/company-hero-animes.git
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Acesse a pasta do repositório pelo terminal
+```
+  cd star-wars-planets
+```
 
-## Learn More
+Agora instale as dependencias do projeto
+```yarn``` ou ```npm install```
 
-To learn more about Next.js, take a look at the following resources:
+Apos ter instalado as dependencias do projeto é necessário rodar o servidor local do projeto
+```
+yarn dev
+```
+ou
+```
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A aplicação rodará na porta 3000 do seu localhost -> [http://localhost:3000](http://localhost:3000/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Tecnologias e bibliotecas
+* [`react`](https://pt-br.reactjs.org/)
+* [`ant-design`](https://ant.design/docs/react/introduce)
+* [`typescript`](https://www.typescriptlang.org/)
+* [`eslint`](https://eslint.org/)
+* [`contextApi`](https://pt-br.reactjs.org/docs/context.html)
+* [`react-icons`](https://react-icons.github.io/react-icons/)
+* [`axios`](https://github.com/axios/axios)
+* [`styled-components`](https://styled-components.com/)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Duvidas
+  Para qualquer duvida estou a total disposição para explicar melhor o meu código e as decisões que tomei de arquitetura. <img src="https://freepngimg.com/thumb/cartoon/87237-plant-fathers-greeting-yoda-green-day-card.png" width="50px" height="40px"/>
