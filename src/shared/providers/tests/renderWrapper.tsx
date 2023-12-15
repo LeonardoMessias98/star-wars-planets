@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-
 import { ReactNode } from "react";
 import LayoutWrapper from "@/shared/providers/Layout";
 import { render } from "@testing-library/react";
