@@ -1,8 +1,10 @@
-import React, { MouseEvent, useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { IPlanet } from "@/shared/types";
-import { Input, InputButton, InputContainer } from "./styles";
+import SearchIcon from "@/shared/assets/SearchIcon";
+
 import Results from "./components/Result";
+import { Input, InputButton, InputContainer } from "./styles";
 
 const SearchInput = () => {
   const [planets, setPlanets] = useState<IPlanet[]>([]);
@@ -13,7 +15,8 @@ const SearchInput = () => {
   async function requestPlanet(search: string): Promise<IPlanet[] | undefined> {
     try {
       const response = await fetch(
-        `https://swapi.dev/api/planets/?search=${search}`
+        `https://swapi.dev/api/planets/?search=${search}`,
+        { cache: "force-cache" }
       );
 
       const repo = await response.json();
@@ -64,6 +67,7 @@ const SearchInput = () => {
       )}
 
       <InputButton onClick={handleSearch} id="search">
+        <SearchIcon />
         Search
       </InputButton>
     </InputContainer>

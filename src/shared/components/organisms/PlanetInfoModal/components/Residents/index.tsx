@@ -1,7 +1,7 @@
 import React from "react";
 
-import ResidentIcon from "@/shared/assets/ResidentIcon";
 import { IPlanet } from "@/shared/types";
+import ResidentIcon from "@/shared/assets/ResidentIcon";
 import { ResidentsContainer } from "./styles";
 
 interface IResidents {
@@ -10,18 +10,22 @@ interface IResidents {
 
 const Residents = ({ planet }: IResidents) => {
   return (
-    <ResidentsContainer>
-      <span>
-        <ResidentIcon />
-        <strong>Residents:</strong>
-      </span>
+    <>
+      {planet.residents.length > 0 && (
+        <ResidentsContainer>
+          <span>
+            <ResidentIcon />
+            <strong>{`Residents (${planet.residents.length}):`}</strong>
+          </span>
 
-      <div className="film-list">
-        {planet.residents.map((resident) => (
-          <p key={resident.name}>{resident.name}</p>
-        ))}
-      </div>
-    </ResidentsContainer>
+          <div className="film-list">
+            {planet.residents.map((resident) => (
+              <p key={resident.name}>{resident.name}</p>
+            ))}
+          </div>
+        </ResidentsContainer>
+      )}
+    </>
   );
 };
 

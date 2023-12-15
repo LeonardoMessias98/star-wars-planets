@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import { MdModeEditOutline } from "react-icons/md";
 
 import { IPlanet } from "@/shared/types";
 import ClimateIcon from "@/shared/assets/ClimateIcon";
@@ -20,6 +21,14 @@ interface IMainInfo {
 }
 
 const MainInfo = ({ planet }: IMainInfo) => {
+  const [planetName, setPlaneName] = useState<string>(planet.name);
+  const [showPlanetInputName, setShowPlanetInputName] =
+    useState<boolean>(false);
+
+  function handleToggleInputPlanetName() {
+    setShowPlanetInputName(!showPlanetInputName);
+  }
+
   return (
     <MainInfoContainer>
       <Profile>
@@ -33,7 +42,21 @@ const MainInfo = ({ planet }: IMainInfo) => {
 
         <PlanetName>
           <h4>Planet:</h4>
-          <h2>{planet.name}</h2>
+          <section>
+            {showPlanetInputName ? (
+              <input
+                type="text"
+                defaultValue={planetName}
+                onChange={(e) => setPlaneName(e.target.value)}
+              />
+            ) : (
+              <h2>{planetName}</h2>
+            )}
+
+            <button onClick={handleToggleInputPlanetName}>
+              <MdModeEditOutline />
+            </button>
+          </section>
         </PlanetName>
       </Profile>
 

@@ -6,6 +6,7 @@ export default function MyDocument() {
   return (
     <Html lang="en">
       <Head>
+        <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.png" sizes="any" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,12 +15,9 @@ export default function MyDocument() {
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
+
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700;900&family=Montserrat:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;900&display=swap"
           rel="stylesheet"
         ></link>
       </Head>

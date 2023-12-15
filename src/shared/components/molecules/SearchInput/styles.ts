@@ -21,9 +21,15 @@ export const Input = styled.input`
   padding: 0 10px;
   border-radius: 5px;
   border: none;
+  text-transform: capitalize;
 `;
 
 export const InputButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
   cursor: pointer;
   height: 40px;
 
@@ -40,4 +46,5 @@ export const InputButton = styled.button`
   text-transform: capitalize;
   text-align: center;
   border: none;
+
 `;

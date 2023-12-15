@@ -1,8 +1,10 @@
-import SinglePlanetModule from "@/modules/SinglePlanet";
-import { IPlanet } from "@/shared/types";
-import getPlanetImageUrl from "@/shared/utils/getPlanetImageUrl";
-import { GetStaticPropsContext } from "next";
 import Head from "next/head";
+import { GetStaticPropsContext } from "next";
+
+import SinglePlanetModule from "@/modules/SinglePlanet";
+import convertToPageUrl from "@/shared/utils/convertToPageUrl";
+import getPlanetImageUrl from "@/shared/utils/getPlanetImageUrl";
+import { IPlanet } from "@/shared/types";
 
 interface IPlanetPage {
   planet: IPlanet;
@@ -28,7 +30,6 @@ export default function Planet({ planet, id }: IPlanetPage) {
         />
 
         <meta property="og:image" content={getPlanetImageUrl(planet.name)} />
-        <meta property="og:type" content="website" />
       </Head>
 
       <SinglePlanetModule planet={planet} />
@@ -65,8 +66,26 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
+  async function getPlanetPages() {
+    try {
+      const response = await fetch(`https://swapi.dev/api/planets`, {
+        cache: "force-cache",
+      });
+      const data = await response.json();
+      const results = data.results;
+
+      const pages = results.map((planet: IPlanet) =>
+        convertToPageUrl(planet.url)
+      );
+
+      return pages;
+    } catch (error) {}
+  }
+
+  const pages = await getPlanetPages();
+
   return {
-    paths: [],
+    paths: [...pages],
     fallback: "blocking",
   };
 }
