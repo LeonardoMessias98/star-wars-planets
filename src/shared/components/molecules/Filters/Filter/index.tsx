@@ -19,7 +19,7 @@ const Filter = ({ onSetFilterOrder, order }: IFilter) => {
   }
 
   return (
-    <FilterContainer>
+    <FilterContainer data-testid="filter">
       <SelectedOption onClick={handleToggleCloseOptions}>
         {order === "Ascendent" ? <ChevronUpIcon /> : <ChevronDownIcon />}
         <p>{order}</p>

@@ -14,6 +14,7 @@ const getPlanetImageUrl = (planetName: IPlanetName) => {
     coruscant: "0007",
     bespin: "0008",
     alderaan: "0009",
+    kamino: ''
   };
 
   const hasImage = imagesId[name];

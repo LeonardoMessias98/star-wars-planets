@@ -82,7 +82,7 @@ export async function getStaticPaths() {
     } catch (error) {}
   }
 
-  const pages = await getPlanetPages();
+  const pages: string[] = await getPlanetPages();
 
   return {
     paths: [...pages],

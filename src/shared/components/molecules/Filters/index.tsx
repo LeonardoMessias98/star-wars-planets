@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import SettingIcon from "@/shared/assets/SettingIcon";
-import FilterContext from "@/shared/providers/contexts/PlanetContexts";
+import FilterContext from "@/shared/providers/contexts/FilterContexts";
 
 import Filter from "./Filter";
 import { FilterTitle, FiltersContainer } from "./styles";

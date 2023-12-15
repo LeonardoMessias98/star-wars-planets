@@ -8,6 +8,7 @@ export type IPlanetName =
   | "dagobah"
   | "coruscant"
   | "bespin"
+  | "kamino"
   | "alderaan";
 
 export interface IPlanet {
@@ -34,7 +35,6 @@ export interface IFilm {
   edited: string;
   episode_id: string;
   opening_crawl: string;
-  planets: IPlanet[];
   producer: string;
   release_date: string;
   species: string[];
@@ -49,7 +49,6 @@ export interface IResident {
   created: string;
   edited: string;
   eye_color: string;
-  films: IFilm[];
   gender: string;
   hair_color: string;
   height: string;

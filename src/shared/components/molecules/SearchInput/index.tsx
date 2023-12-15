@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { IPlanet } from "@/shared/types";
 import SearchIcon from "@/shared/assets/SearchIcon";
+import FilterContext from "@/shared/providers/contexts/FilterContexts";
 
 import Results from "./components/Result";
 import { Input, InputButton, InputContainer } from "./styles";
-import FilterContext from "@/shared/providers/contexts/PlanetContexts";
 
 const SearchInput = () => {
   const { nameFilterOrder, populationFilterOrder } = useContext(FilterContext);

@@ -14,7 +14,13 @@ const StarWarsLogo = () => {
 
   return (
     <LogoContainer onClick={handleClick}>
-      <Image src={Logo.src} alt="logo" className="logo" fill={true} />
+      <Image
+        src={Logo.src}
+        alt="logo"
+        className="logo"
+        data-testid="logo"
+        fill={true}
+      />
     </LogoContainer>
   );
 };
