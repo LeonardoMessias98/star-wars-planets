@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 export const MainInfoContainer = styled.section`
   display: flex;
@@ -21,19 +21,27 @@ export const Profile = styled.div`
   }
 `;
 
-export const PlanetImage = styled.div`
+interface IPlanetImage {
+  isFallbackImage: boolean;
+}
+
+export const PlanetImage = styled.div<IPlanetImage>`
   position: relative;
 
   width: 74px;
   height: 74px;
 
-  animation: infinite rotate 60s;
+  ${(props) =>
+    !props.isFallbackImage &&
+    css`
+      animation: infinite rotate 60s;
+    `}
 
   @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-      }
+    to {
+      transform: rotate(360deg);
     }
+  }
 `;
 
 export const PlanetName = styled.section`

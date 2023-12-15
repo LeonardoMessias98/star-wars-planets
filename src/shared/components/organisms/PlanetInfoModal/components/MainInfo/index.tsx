@@ -21,6 +21,9 @@ interface IMainInfo {
 }
 
 const MainInfo = ({ planet }: IMainInfo) => {
+  const planetImgUrl = getPlanetImageUrl(planet.name);
+  const isFallbackImage = planetImgUrl.includes("shareicon");
+
   const [planetName, setPlaneName] = useState<string>(planet.name);
   const [showPlanetInputName, setShowPlanetInputName] =
     useState<boolean>(false);
@@ -32,12 +35,8 @@ const MainInfo = ({ planet }: IMainInfo) => {
   return (
     <MainInfoContainer>
       <Profile>
-        <PlanetImage>
-          <Image
-            src={getPlanetImageUrl(planet.name)}
-            alt="planet image"
-            fill={true}
-          />
+        <PlanetImage isFallbackImage={isFallbackImage}>
+          <Image src={planetImgUrl} alt="planet image" fill={true} />
         </PlanetImage>
 
         <PlanetName>

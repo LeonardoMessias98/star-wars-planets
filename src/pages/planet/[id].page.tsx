@@ -5,6 +5,9 @@ import SinglePlanetModule from "@/modules/SinglePlanet";
 import convertToPageUrl from "@/shared/utils/convertToPageUrl";
 import getPlanetImageUrl from "@/shared/utils/getPlanetImageUrl";
 import { IPlanet } from "@/shared/types";
+import { useRouter } from "next/router";
+import Loader from "@/shared/components/atoms/Loader";
+import { LoaderContainer } from "./styles";
 
 interface IPlanetPage {
   planet: IPlanet;
@@ -12,8 +15,17 @@ interface IPlanetPage {
 }
 
 export default function Planet({ planet, id }: IPlanetPage) {
-  const meta_title = `Star Wars - Planet ${planet.name}`;
-  const meta_description = `${planet.name} is a planet with ${planet.population} population, its climate is ${planet.climate} and its terrain is ${planet.terrain}`;
+  const router = useRouter();
+  const meta_title = `Star Wars - Planet ${planet?.name}`;
+  const meta_description = `${planet?.name} is a planet with ${planet?.population} population, its climate is ${planet?.climate} and its terrain is ${planet?.terrain}`;
+
+  if (router.isFallback) {
+    return (
+      <LoaderContainer>
+        <Loader />
+      </LoaderContainer>
+    );
+  }
 
   return (
     <>
@@ -86,6 +98,6 @@ export async function getStaticPaths() {
 
   return {
     paths: [...pages],
-    fallback: "blocking",
+    fallback: true,
   };
 }
