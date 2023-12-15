@@ -1,7 +1,7 @@
 ![image](https://github.com/LeonardoMessias98/star-wars-planets/assets/55189046/130e3f6b-8d0c-4c53-9088-2f0af0892832)
 
 
-#### Acesse aqui -> [https://animes-hero.vercel.app](https://planets-starwars.vercel.app/)
+#### Acesse aqui -> [https://planets-starwars.vercel.app](https://planets-starwars.vercel.app/)
 
 ## Funcionalidades
 
