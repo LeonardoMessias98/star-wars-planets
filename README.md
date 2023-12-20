@@ -7,6 +7,9 @@
 
 A aplicação desenvolvida contém duas telas
  * Página Inicial (Home): Esta tela proporciona ao usuário a capacidade de realizar pesquisas rápidas sobre planetas no universo de Star Wars. Facilita a busca por informações específicas sobre os diferentes planetas disponíveis no sistema, proporcionando uma experiência intuitiva e eficiente.
+    * Filtragem: Na aplicação é possível filtrar os planetas por nome e população, por padrão a busca funciona pesquisando os planetas por nome. Para ativar a busca por população é necessário escolher uma das 3 opções no filtro de população.
+    ![Gravação de tela de 20-12-2023 14_01_54 (1)](https://github.com/LeonardoMessias98/star-wars-planets/assets/55189046/aa340223-6e56-4648-8150-9b75ce9eb173)
+
 
  * Página de Planeta Individual (Single Planet): Esta tela foi projetada para exibir detalhes específicos sobre o planeta selecionado. Os dados apresentados abrangem tanto as características geológicas quanto as informações populacionais do planeta escolhido, oferecendo uma visão abrangente e detalhada para o usuário explorar.
 
