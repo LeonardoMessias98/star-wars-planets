@@ -14,6 +14,9 @@ const Filters = () => {
     handleSelectPopulationFilter,
   } = useContext(FilterContext);
 
+  const filterOptsByName = ['Name', 'Ascendent', 'Decrescent'];
+  const filterOptsByPopulation = ['Population', 'Equal', 'Greater', 'Less'];
+
   return (
     <FiltersContainer>
       <FilterTitle>
@@ -24,10 +27,12 @@ const Filters = () => {
       <Filter
         order={nameFilterOrder}
         onSetFilterOrder={handleSelectNameFilter}
+        options={filterOptsByName}
       />
       <Filter
         order={populationFilterOrder}
         onSetFilterOrder={handleSelectPopulationFilter}
+        options={filterOptsByPopulation}
       />
     </FiltersContainer>
   );

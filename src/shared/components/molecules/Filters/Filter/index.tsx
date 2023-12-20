@@ -9,9 +9,10 @@ import Options from "./Options";
 interface IFilter {
   order: string;
   onSetFilterOrder: (order: string) => void;
+  options: string[]
 }
 
-const Filter = ({ onSetFilterOrder, order }: IFilter) => {
+const Filter = ({ onSetFilterOrder, order, options }: IFilter) => {
   const [showOptions, setShowOptions] = useState(false);
 
   function handleToggleCloseOptions() {
@@ -29,6 +30,7 @@ const Filter = ({ onSetFilterOrder, order }: IFilter) => {
         <Options
           onClose={handleToggleCloseOptions}
           onChangeOrder={onSetFilterOrder}
+          options={options}
         />
       )}
     </FilterContainer>

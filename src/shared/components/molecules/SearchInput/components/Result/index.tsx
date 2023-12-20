@@ -17,12 +17,12 @@ import Image from "next/image";
 interface IResults {
   planets: IPlanet[];
   isLoading?: boolean;
-  searchInput: string;
+  search: string;
   onClose: () => void;
 }
 
-const Results = ({ planets, searchInput, isLoading, onClose }: IResults) => {
-  const planetNotFound = !isLoading && !planets.length && searchInput;
+const Results = ({ planets, search, isLoading, onClose }: IResults) => {
+  const planetNotFound = !isLoading && !planets.length && search;
 
   const closeResultModal = (ev: MouseEvent<HTMLElement> | any) => {
     const target = ev.target as HTMLElement;

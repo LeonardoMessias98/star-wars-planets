@@ -1,81 +1,36 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import { IPlanet } from "@/shared/types";
 import SearchIcon from "@/shared/assets/SearchIcon";
-import FilterContext from "@/shared/providers/contexts/FilterContexts";
+import useFilterResults from "@/shared/hooks/useFilterResults";
 
 import Results from "./components/Result";
 import { Input, InputButton, InputContainer } from "./styles";
+import useRequestPlanet from "@/shared/hooks/useRequestPlanet";
 
 const SearchInput = () => {
-  const { nameFilterOrder, populationFilterOrder } = useContext(FilterContext);
+  const { orderResults, setPopulation } = useFilterResults();
+  const { search, planets, isLoading, requestPlanets, setSearch } = useRequestPlanet()
 
-  const [planets, setPlanets] = useState<IPlanet[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [searchInput, setSearchInput] = useState<string>("");
+
   const [showResults, setShowResults] = useState<boolean>(false);
-
-  async function requestPlanet(search: string): Promise<IPlanet[] | undefined> {
-    try {
-      const response = await fetch(
-        `https://swapi.dev/api/planets/?search=${search}`,
-        { cache: "force-cache" }
-      );
-
-      const repo = await response.json();
-
-      return repo.results;
-    } catch (error) {}
-  }
 
   async function handleSearch() {
     setShowResults(true);
-
-    setIsLoading(true);
-    const results = await requestPlanet(searchInput);
-    setIsLoading(false);
-
-    if (!results) return;
-
-    setPlanets(orderResults(results));
+    requestPlanets();
   }
 
   function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const target = e.target;
-    const value = target.value;
+    const value = e.target.value;
 
     if (value) {
-      setSearchInput(value);
+      setSearch(value);
+      setPopulation(Number(value))
     }
   }
 
   function handleClose() {
     setShowResults(false);
   }
-
-  function orderResults(results: IPlanet[]) {
-    if (populationFilterOrder === "Ascendent")
-      return results.sort((a, b) =>
-        Number(a.population) > Number(b.population) ? 1 : -1
-      );
-
-    if (populationFilterOrder === "Decrescent")
-      return results.sort((a, b) =>
-        Number(a.population) < Number(b.population) ? 1 : -1
-      );
-
-    if (nameFilterOrder === "Ascendent")
-      return results.sort((a, b) => (a.name > b.name ? 1 : -1));
-
-    if (nameFilterOrder === "Decrescent")
-      return results.sort((a, b) => (a.name < b.name ? 1 : -1));
-
-    return results;
-  }
-
-  useEffect(() => {
-    const results = orderResults(planets);
-  }, [planets, nameFilterOrder, populationFilterOrder]);
 
   return (
     <InputContainer>
@@ -87,7 +42,7 @@ const SearchInput = () => {
 
       {showResults && (
         <Results
-          searchInput={searchInput}
+          search={search}
           planets={orderResults(planets)}
           isLoading={isLoading}
           onClose={handleClose}

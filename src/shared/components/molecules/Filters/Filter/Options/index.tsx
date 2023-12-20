@@ -1,16 +1,14 @@
-import React, { MouseEvent, useEffect } from "react";
-
-import ChevronDownIcon from "@/shared/assets/ChevronDownIcon";
-import ChevronUpIcon from "@/shared/assets/ChevronUpIcon";
+import React, { MouseEvent } from "react";
 
 import { Option, OptionsContainer } from "./styles";
 
 interface IOptions {
   onClose: () => void;
   onChangeOrder: (order: string) => void;
+  options: string[]
 }
 
-const Options = ({ onClose, onChangeOrder }: IOptions) => {
+const Options = ({ onClose, onChangeOrder, options }: IOptions) => {
   function handleChangeOrder(e: MouseEvent) {
     const target = e.target as HTMLElement;
 
@@ -21,13 +19,12 @@ const Options = ({ onClose, onChangeOrder }: IOptions) => {
 
   return (
     <OptionsContainer>
-      <Option onClick={handleChangeOrder} id="Ascendent">
-        Ascendent
-      </Option>
+      {options.map(opt => (
+        <Option onClick={handleChangeOrder} id={opt} key={opt}>
+          {opt}
+        </Option>
+      ))}
 
-      <Option onClick={handleChangeOrder} id="Decrescent">
-        Decrescent
-      </Option>
     </OptionsContainer>
   );
 };
