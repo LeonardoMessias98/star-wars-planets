@@ -32,8 +32,6 @@ const useFilterResults = () => {
   }
 
   function orderResults(results: IPlanet[]): IPlanet[] {
-    console.log({ results, nameFilterOrder, populationFilterOrder })
-
     if (nameFilterOrder !== 'Name') {
       return orderByName(nameFilterOrder, results)
     }

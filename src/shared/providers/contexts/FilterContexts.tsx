@@ -9,6 +9,7 @@ export type FilterContextProps = {
   populationFilterOrder: string;
   handleSelectNameFilter: (order: string) => void;
   handleSelectPopulationFilter: (order: string) => void;
+  handleCleanAllFilters: () => void;
 };
 
 const FilterContext = createContext({} as FilterContextProps);
@@ -28,6 +29,11 @@ export function FilterContextProvider({ children }: FilterContextData) {
     setNameFilterOrder("Name");
   }
 
+  function handleCleanAllFilters() {
+    setNameFilterOrder("Name");
+    setPopulationFilterOrder("Population");
+  }
+
   return (
     <FilterContext.Provider
       value={{
@@ -35,6 +41,7 @@ export function FilterContextProvider({ children }: FilterContextData) {
         populationFilterOrder,
         handleSelectNameFilter,
         handleSelectPopulationFilter,
+        handleCleanAllFilters
       }}
     >
       {children}

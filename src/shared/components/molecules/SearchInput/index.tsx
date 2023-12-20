@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import SearchIcon from "@/shared/assets/SearchIcon";
 import useFilterResults from "@/shared/hooks/useFilterResults";
@@ -6,8 +6,10 @@ import useFilterResults from "@/shared/hooks/useFilterResults";
 import Results from "./components/Result";
 import { Input, InputButton, InputContainer } from "./styles";
 import useRequestPlanet from "@/shared/hooks/useRequestPlanet";
+import FilterContext from "@/shared/providers/contexts/FilterContexts";
 
 const SearchInput = () => {
+  const { handleCleanAllFilters } = useContext(FilterContext);
   const { orderResults, setPopulation } = useFilterResults();
   const { search, planets, isLoading, requestPlanets, setSearch } = useRequestPlanet()
 
@@ -15,6 +17,10 @@ const SearchInput = () => {
   const [showResults, setShowResults] = useState<boolean>(false);
 
   async function handleSearch() {
+    if (!search) {
+      handleCleanAllFilters();
+    }
+
     setShowResults(true);
     requestPlanets();
   }
